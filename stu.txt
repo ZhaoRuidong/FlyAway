@@ -1,0 +1,92 @@
+http://idea.qinxi1992.cn/
+pan.baidu.com/s/1pKhJk8b
+oysm
+
+create database stumanger;
+use stumanger;
+
+
+CREATE TABLE Student(
+	Sno CHAR(12) PRIMARY KEY,
+	Sname CHAR(20) UNIQUE,
+	Ssex CHAR(2),
+	Sage SMALLINT,
+	Sdept CHAR(20),
+	SID char(9),
+	);
+
+
+CREATE TABLE Course(
+	Cno CHAR(4)PRIMARY KEY,
+	Cname CHAR(40),
+	Cpno CHAR(4),
+	Ccredit SMALLINT,
+	FOREIGN KEY (Cpno) REFERENCES Course(Cno)
+	);
+
+
+CREATE TABLE SC(
+	Sno CHAR(12),
+	Cno CHAR(4),
+	Grade SMALLINT,
+	PRIMARY KEY(Sno,Cno),
+	FOREIGN KEY (Sno) REFERENCES Student(Sno),
+	FOREIGN KEY (Cno) REFERENCES Course(Cno)
+	);
+
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130938131','赵瑞栋','男','IS',23,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130938071','张浩','男','IS',21,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130938031','杨加兵','男','IS',21,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130938181','朱涛','男','IS',21,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130937690','李明阳','女','IS',21,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130926551','牛云飞','男','Math',21,1);
+insert into Student (Sno,Sname,Ssex,Sdept,Sage,SID) values('320130937911','王锋','男','IS',22,1);
+
+insert into Course(Cno,Cname,Ccredit) values (1,'数据库',3);
+insert into Course(Cno,Cname,Ccredit) values (2,'网络',3);
+insert into Course(Cno,Cname,Ccredit) values (3,'接口',3);
+insert into Course(Cno,Cname,Ccredit) values (4,'编译原理',3);
+insert into Course(Cno,Cname,Ccredit) values (5,'算法',3);
+insert into Course(Cno,Cname,Ccredit) values (6,'软件工程',3);
+
+
+
+insert into sc(sno,cno,grade) values(320130938131,1,0);
+insert into sc(sno,cno,grade) values(320130938131,2,0);
+insert into sc(sno,cno,grade) values(320130938131,3,0);
+insert into sc(sno,cno,grade) values(320130938131,4,0);
+insert into sc(sno,cno,grade) values(320130938131,5,0);
+insert into sc(sno,cno,grade) values(320130938131,6,0);
+
+
+insert into sc(sno,cno,grade) values(320130938031,2,0),
+(320130938031,4,0),(320130938031,6,0);
+
+
+
+insert into sc(sno,cno,grade) values(320130938071,1,0);
+insert into sc(sno,cno,grade) values(320130938071,2,0);
+insert into sc(sno,cno,grade) values(320130938071,3,0);
+insert into sc(sno,cno,grade) values(320130938071,4,0);
+insert into sc(sno,cno,grade) values(320130938071,5,0);
+insert into sc(sno,cno,grade) values(320130938071,6,0);
+
+insert into sc(sno,cno,grade) values(320130937911,1,0);
+insert into sc(sno,cno,grade) values(320130937911,2,0);
+insert into sc(sno,cno,grade) values(320130937911,3,0);
+insert into sc(sno,cno,grade) values(320130937911,4,0);
+insert into sc(sno,cno,grade) values(320130937911,5,0);
+insert into sc(sno,cno,grade) values(320130937911,6,0);
+
+
+insert into sc(sno,cno,grade) values(320130938181,1,0),(320130938181,1,0),(320130938181,1,0),
+(320130938181,1,0),(320130938181,1,0),(320130938181,1,0);
+insert into sc(sno,cno,grade) values(320130926551,2,0),(320130926551,3,0),(320130926551,4,0),(320130926551,5,0);
+
+
+insert into sc(sno,cno,grade) values(320130937690,1,0),(320130937690,2,0),(320130937690,3,0),(320130937690,4,0),(320130937690,6,0);
+insert into sc(sno,cno,grade) values(320130926551,1,0);
+
+select * from SC;
+select * from Course;
+select * from Student;
